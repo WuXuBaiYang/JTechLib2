@@ -96,7 +96,7 @@ public class JRecyclerView extends RecyclerView {
     /**
      * 主构造
      *
-     * @param context
+     * @param context context
      */
     public JRecyclerView(Context context) {
         this(context, null);
@@ -105,8 +105,8 @@ public class JRecyclerView extends RecyclerView {
     /**
      * 主构造
      *
-     * @param context
-     * @param attrs
+     * @param context context
+     * @param attrs attrs
      */
     public JRecyclerView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
@@ -115,9 +115,9 @@ public class JRecyclerView extends RecyclerView {
     /**
      * 主构造
      *
-     * @param context
-     * @param attrs
-     * @param arg2
+     * @param context context
+     * @param attrs attrs
+     * @param arg2 styleid
      */
     public JRecyclerView(Context context, AttributeSet attrs, int arg2) {
         super(context, attrs, arg2);
@@ -130,7 +130,7 @@ public class JRecyclerView extends RecyclerView {
     /**
      * 开始拖动换位
      *
-     * @param viewHolder
+     * @param viewHolder holder
      */
     public void startDrag(ViewHolder viewHolder) {
         itemTouchHelper.startDrag(viewHolder);
@@ -139,7 +139,7 @@ public class JRecyclerView extends RecyclerView {
     /**
      * 开始滑动删除
      *
-     * @param viewHolder
+     * @param viewHolder holder
      */
     public void startSwipe(ViewHolder viewHolder) {
         itemTouchHelper.startSwipe(viewHolder);
@@ -219,8 +219,8 @@ public class JRecyclerView extends RecyclerView {
     /**
      * 自由滑动
      *
-     * @param swipeEnabled
-     * @param onItemViewSwipeListener
+     * @param swipeEnabled 是否开启滑动
+     * @param onItemViewSwipeListener 滑动监听
      */
     public void setSwipeFree(boolean swipeEnabled, OnItemViewSwipeListener onItemViewSwipeListener) {
         int swipeFlags = ItemTouchHelper.START | ItemTouchHelper.END;

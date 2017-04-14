@@ -46,23 +46,23 @@ public abstract class BaseFragment extends Fragment {
     /**
      * 创建视图
      *
-     * @param inflater
-     * @param container
-     * @return
+     * @param inflater  inflater
+     * @param container container
+     * @return 视图
      */
     public abstract View createView(LayoutInflater inflater, ViewGroup container);
 
     /**
      * 初始化变量
      *
-     * @param bundle
+     * @param bundle bundle
      */
     protected abstract void initVariables(Bundle bundle);
 
     /**
      * 初始化视图
      *
-     * @param savedInstanceState
+     * @param savedInstanceState savedInstanceState
      */
     protected abstract void initViews(Bundle savedInstanceState);
 

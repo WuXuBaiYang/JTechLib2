@@ -27,7 +27,7 @@ public abstract class RecyclerSwipeAdapter<D> extends RecyclerAdapter<D> {
     /**
      * 主构造
      *
-     * @param context
+     * @param context context
      */
     public RecyclerSwipeAdapter(Context context) {
         super(context);
@@ -36,30 +36,32 @@ public abstract class RecyclerSwipeAdapter<D> extends RecyclerAdapter<D> {
     /**
      * 重置视图
      *
-     * @param recyclerHolder
+     * @param recyclerHolder holder
      */
     public abstract void clearView(RecyclerHolder recyclerHolder);
 
     /**
      * 获取滑动视图
      *
-     * @param recyclerHolder
-     * @return
+     * @param recyclerHolder holder
+     * @return 滑动的视图
      */
     public abstract View getSwipeView(RecyclerHolder recyclerHolder);
 
     /**
      * 滑动视图调用方法
      *
-     * @param recyclerHolder
-     * @param direction
+     * @param recyclerHolder holder
+     * @param direction      方向
+     * @param dx             位移距离
      */
     public abstract void onSwipe(RecyclerHolder recyclerHolder, int direction, float dx);
 
     /**
      * 从开始处滑动
      *
-     * @param recyclerHolder
+     * @param recyclerHolder holder
+     * @param dx             位移距离
      */
     public void onSwipeStart(RecyclerHolder recyclerHolder, float dx) {
 
@@ -68,7 +70,8 @@ public abstract class RecyclerSwipeAdapter<D> extends RecyclerAdapter<D> {
     /**
      * 从结束处滑动
      *
-     * @param recyclerHolder
+     * @param recyclerHolder holder
+     * @param dx             位移距离
      */
     public void onSwipeEnd(RecyclerHolder recyclerHolder, float dx) {
 

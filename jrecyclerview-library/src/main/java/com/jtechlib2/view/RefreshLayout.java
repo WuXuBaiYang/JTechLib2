@@ -248,6 +248,7 @@ public class RefreshLayout extends ViewGroup implements NestedScrollingParent, N
 
     /**
      * One of DEFAULT, or LARGE.
+     * @param size size
      */
     public void setSize(int size) {
         if (size != MaterialProgressDrawable.LARGE && size != MaterialProgressDrawable.DEFAULT) {
@@ -270,7 +271,7 @@ public class RefreshLayout extends ViewGroup implements NestedScrollingParent, N
     /**
      * 获取下拉刷新的时间戳
      *
-     * @return
+     * @return timetemp
      */
     public long getRefreshTimeMillis() {
         return refreshTimeMillis;
@@ -279,7 +280,7 @@ public class RefreshLayout extends ViewGroup implements NestedScrollingParent, N
     /**
      * Simple constructor to use when creating a SwipeRefreshLayout from code.
      *
-     * @param context
+     * @param context context
      */
     public RefreshLayout(Context context) {
         this(context, null);
@@ -288,8 +289,8 @@ public class RefreshLayout extends ViewGroup implements NestedScrollingParent, N
     /**
      * Constructor that is called when inflating SwipeRefreshLayout from XML.
      *
-     * @param context
-     * @param attrs
+     * @param context context
+     * @param attrs attrs
      */
     public RefreshLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -348,6 +349,7 @@ public class RefreshLayout extends ViewGroup implements NestedScrollingParent, N
     /**
      * Set the listener to be notified when a refresh is triggered via the swipe
      * gesture.
+     * @param listener listener
      */
     public void setOnRefreshListener(OnRefreshListener listener) {
         mListener = listener;
@@ -440,7 +442,7 @@ public class RefreshLayout extends ViewGroup implements NestedScrollingParent, N
     /**
      * Pre API 11, this does an alpha animation.
      *
-     * @param progress
+     * @param progress progress
      */
     private void setAnimationProgress(float progress) {
         if (isAlphaUsedForScale()) {
@@ -510,6 +512,7 @@ public class RefreshLayout extends ViewGroup implements NestedScrollingParent, N
 
     /**
      * @deprecated Use {@link #setProgressBackgroundColorSchemeResource(int)}
+     * @param colorRes  color
      */
     @Deprecated
     public void setProgressBackgroundColor(int colorRes) {
@@ -529,7 +532,7 @@ public class RefreshLayout extends ViewGroup implements NestedScrollingParent, N
     /**
      * Set the background color of the progress spinner disc.
      *
-     * @param color
+     * @param color color
      */
     public void setProgressBackgroundColorSchemeColor(@ColorInt int color) {
         mCircleView.setBackgroundColor(color);
@@ -538,6 +541,7 @@ public class RefreshLayout extends ViewGroup implements NestedScrollingParent, N
 
     /**
      * @deprecated Use {@link #setColorSchemeResources(int...)}
+     * @param colors  colors
      */
     @Deprecated
     public void setColorScheme(@ColorRes int... colors) {
@@ -549,7 +553,7 @@ public class RefreshLayout extends ViewGroup implements NestedScrollingParent, N
      * resources. The first color will also be the color of the bar that grows
      * in response to a user swipe gesture.
      *
-     * @param colorResIds
+     * @param colorResIds colorres
      */
     @SuppressWarnings("deprecation")
     public void setColorSchemeResources(@ColorRes int... colorResIds) {
@@ -565,9 +569,8 @@ public class RefreshLayout extends ViewGroup implements NestedScrollingParent, N
      * Set the colors used in the progress animation. The first color will also
      * be the color of the bar that grows in response to a user swipe gesture.
      *
-     * @param colors
+     * @param colors colors
      */
-    @ColorInt
     public void setColorSchemeColors(int... colors) {
         ensureTarget();
         mProgress.setColorSchemeColors(colors);
@@ -598,7 +601,7 @@ public class RefreshLayout extends ViewGroup implements NestedScrollingParent, N
     /**
      * Set the distance to trigger a sync in dips
      *
-     * @param distance
+     * @param distance distance
      */
     public void setDistanceToTriggerSync(int distance) {
         mTotalDragDistance = distance;

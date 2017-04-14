@@ -22,9 +22,9 @@ public class RecyclerHolder extends RecyclerView.ViewHolder {
     /**
      * 通过控件的Id获取对于的控件，如果没有则加入views
      *
-     * @param viewId
-     * @param <T>
-     * @return
+     * @param viewId 资源id
+     * @param <T>    泛型
+     * @return 返回实例化后的对象
      */
     @SuppressWarnings("unchecked")
     public <T extends View> T getView(int viewId) {
@@ -39,9 +39,9 @@ public class RecyclerHolder extends RecyclerView.ViewHolder {
     /**
      * 获取imageview
      *
-     * @param viewId
-     * @param <T>
-     * @return
+     * @param viewId 资源id
+     * @param <T>    泛型
+     * @return 返回实例化后的对象
      */
     public <T extends ImageView> T getImageView(int viewId) {
         return getView(viewId);
@@ -50,9 +50,9 @@ public class RecyclerHolder extends RecyclerView.ViewHolder {
     /**
      * 为TextView设置字符串
      *
-     * @param viewId
-     * @param text
-     * @return
+     * @param viewId 资源id
+     * @param text 文本
+     * @return holder对象
      */
     public RecyclerHolder setText(int viewId, CharSequence text) {
         TextView view = getView(viewId);
@@ -63,9 +63,9 @@ public class RecyclerHolder extends RecyclerView.ViewHolder {
     /**
      * 为ImageView设置图片
      *
-     * @param viewId
-     * @param drawableId
-     * @return
+     * @param viewId 资源id
+     * @param drawableId 图片id
+     * @return holder对象
      */
     public RecyclerHolder setImageResource(int viewId, int drawableId) {
         ImageView view = getView(viewId);
@@ -76,9 +76,9 @@ public class RecyclerHolder extends RecyclerView.ViewHolder {
     /**
      * 为ImageView设置图片
      *
-     * @param viewId
-     * @param bm
-     * @return
+     * @param viewId 资源id
+     * @param bm 图片
+     * @return holder对象
      */
     public RecyclerHolder setImageBitmap(int viewId, Bitmap bm) {
         ImageView view = getView(viewId);
@@ -89,8 +89,8 @@ public class RecyclerHolder extends RecyclerView.ViewHolder {
     /**
      * 设置视图为不可见
      *
-     * @param viewId
-     * @return
+     * @param viewId 资源id
+     * @return holder对象
      */
     public RecyclerHolder hideViewGone(int viewId) {
         getView(viewId).setVisibility(View.GONE);
@@ -100,8 +100,8 @@ public class RecyclerHolder extends RecyclerView.ViewHolder {
     /**
      * 设置视图为不可见（invisible）
      *
-     * @param viewId
-     * @return
+     * @param viewId 资源id
+     * @return holder对象
      */
     public RecyclerHolder hideViewInvisible(int viewId) {
         getView(viewId).setVisibility(View.INVISIBLE);
@@ -111,8 +111,8 @@ public class RecyclerHolder extends RecyclerView.ViewHolder {
     /**
      * 显示视图
      *
-     * @param viewId
-     * @return
+     * @param viewId 资源id
+     * @return holder对象
      */
     public RecyclerHolder showView(int viewId) {
         getView(viewId).setVisibility(View.VISIBLE);
@@ -122,9 +122,9 @@ public class RecyclerHolder extends RecyclerView.ViewHolder {
     /**
      * 设置视图是否显示
      *
-     * @param viewId
-     * @param isVisible
-     * @return
+     * @param viewId 资源id
+     * @param isVisible 是否显示
+     * @return holder对象
      */
     public RecyclerHolder setViewVisible(int viewId, boolean isVisible) {
         if (isVisible) {
@@ -138,9 +138,9 @@ public class RecyclerHolder extends RecyclerView.ViewHolder {
     /**
      * 设置视图是否显示
      *
-     * @param viewId
-     * @param isVisible
-     * @return
+     * @param viewId 资源id
+     * @param isVisible 是否显示
+     * @return holder对象
      */
     public RecyclerHolder setViewVisibleInvisible(int viewId, boolean isVisible) {
         if (isVisible) {
@@ -154,9 +154,9 @@ public class RecyclerHolder extends RecyclerView.ViewHolder {
     /**
      * 设置点击事件
      *
-     * @param viewId
-     * @param onClickListener
-     * @return
+     * @param viewId 资源id
+     * @param onClickListener 点击监听
+     * @return holder对象
      */
     public RecyclerHolder setClickListener(int viewId, View.OnClickListener onClickListener) {
         getView(viewId).setOnClickListener(onClickListener);
@@ -166,9 +166,9 @@ public class RecyclerHolder extends RecyclerView.ViewHolder {
     /**
      * 设置长点击事件
      *
-     * @param viewId
-     * @param onLongClickListener
-     * @return
+     * @param viewId 资源id
+     * @param onLongClickListener 长点击事件
+     * @return holder对象
      */
     public RecyclerHolder setLongClickListener(int viewId, View.OnLongClickListener onLongClickListener) {
         getView(viewId).setOnLongClickListener(onLongClickListener);
@@ -178,9 +178,9 @@ public class RecyclerHolder extends RecyclerView.ViewHolder {
     /**
      * 设置是否可用
      *
-     * @param viewId
-     * @param enabled
-     * @return
+     * @param viewId 资源id
+     * @param enabled 是否可用
+     * @return holder对象
      */
     public RecyclerHolder setEnabled(int viewId, boolean enabled) {
         getView(viewId).setEnabled(enabled);
@@ -190,9 +190,9 @@ public class RecyclerHolder extends RecyclerView.ViewHolder {
     /**
      * 设置选择状态
      *
-     * @param viewId
-     * @param selected
-     * @return
+     * @param viewId 资源id
+     * @param selected 是否选择
+     * @return holder对象
      */
     public RecyclerHolder setSelected(int viewId, boolean selected) {
         getView(viewId).setSelected(selected);
@@ -202,9 +202,9 @@ public class RecyclerHolder extends RecyclerView.ViewHolder {
     /**
      * 设置背景图片
      *
-     * @param viewId
-     * @param resId
-     * @return
+     * @param viewId 视图id
+     * @param resId 资源id
+     * @return holder对象
      */
     public RecyclerHolder setBackgroundResource(int viewId, int resId) {
         getView(viewId).setBackgroundResource(resId);

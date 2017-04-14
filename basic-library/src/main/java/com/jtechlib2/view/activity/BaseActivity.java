@@ -34,14 +34,14 @@ public abstract class BaseActivity extends AppCompatActivity {
     /**
      * 初始化变量
      *
-     * @param bundle
+     * @param bundle bundle
      */
     protected abstract void initVariables(Bundle bundle);
 
     /**
      * 初始化视图
      *
-     * @param savedInstanceState
+     * @param savedInstanceState savedInstanceState
      */
     protected abstract void initViews(Bundle savedInstanceState);
 
@@ -60,7 +60,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     /**
      * 获取activity对象
      *
-     * @return
+     * @return 当前activity对象
      */
     public BaseActivity getActivity() {
         return this;

@@ -60,8 +60,8 @@ public class LoadMoreAdapter extends RecyclerView.Adapter {
     /**
      * 是否可以触摸，防止上啦加载，footer影响touch
      *
-     * @param position
-     * @return
+     * @param position 位置
+     * @return 是否可以press
      */
     public boolean canPress(int position) {
         return !(loadMore && position == getItemCount() - 1);

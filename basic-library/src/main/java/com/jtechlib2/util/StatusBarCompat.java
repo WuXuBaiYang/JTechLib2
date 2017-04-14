@@ -51,7 +51,8 @@ public class StatusBarCompat {
     /**
      * 设置状态栏
      *
-     * @param statusBar
+     * @param context   context
+     * @param statusBar 状态栏
      */
     public static void setStatusBar(Context context, View statusBar) {
         if (null != statusBar) {

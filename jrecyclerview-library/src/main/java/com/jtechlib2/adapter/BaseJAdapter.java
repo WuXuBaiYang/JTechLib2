@@ -50,7 +50,7 @@ public abstract class BaseJAdapter<VH extends RecyclerHolder, D> extends Recycle
     /**
      * 主构造
      *
-     * @param context
+     * @param context context
      */
     public BaseJAdapter(Context context) {
         this.context = context;
@@ -60,7 +60,7 @@ public abstract class BaseJAdapter<VH extends RecyclerHolder, D> extends Recycle
     /**
      * 得到上下文对象
      *
-     * @return
+     * @return context
      */
     public Context getContext() {
         return context;
@@ -105,6 +105,7 @@ public abstract class BaseJAdapter<VH extends RecyclerHolder, D> extends Recycle
      * 获取item对象
      *
      * @param position 位置
+     * @return item数据对象
      */
     public D getItem(int position) {
         if (null != realDatas && realDatas.size() > position) {
@@ -211,7 +212,7 @@ public abstract class BaseJAdapter<VH extends RecyclerHolder, D> extends Recycle
     /**
      * 获取真实数据
      *
-     * @return
+     * @return 真实数据集合
      */
     public List<D> getRealDatas() {
         return realDatas;
@@ -220,7 +221,7 @@ public abstract class BaseJAdapter<VH extends RecyclerHolder, D> extends Recycle
     /**
      * 获取真实数据的长度
      *
-     * @return
+     * @return 真实数据长度
      */
     public int getRealDatasSize() {
         return null != getRealDatas() ? getRealDatas().size() : 0;
@@ -249,7 +250,9 @@ public abstract class BaseJAdapter<VH extends RecyclerHolder, D> extends Recycle
     /**
      * Recycler适配器填充方法
      *
-     * @param holder viewholder
+     * @param position 位置
+     * @param viewType 视图类型
+     * @param holder   viewholder
      */
     public abstract void convert(VH holder, int viewType, int position);
 
@@ -267,7 +270,6 @@ public abstract class BaseJAdapter<VH extends RecyclerHolder, D> extends Recycle
      *
      * @param datas    数据
      * @param loadMore 是否为加载更多
-     * @return 适配器对象
      */
     public void setDatas(Collection<D> datas, boolean loadMore) {
         if (loadMore) {
@@ -305,7 +307,6 @@ public abstract class BaseJAdapter<VH extends RecyclerHolder, D> extends Recycle
      * 添加单条数据
      *
      * @param data 数据
-     * @return 适配器对象
      */
     public void addData(D data) {
         if (null != data && null != realDatas) {
@@ -318,7 +319,6 @@ public abstract class BaseJAdapter<VH extends RecyclerHolder, D> extends Recycle
      *
      * @param index 指定位置
      * @param data  数据
-     * @return 适配器对象
      */
     public void addData(int index, D data) {
         if (null != data && null != realDatas) {
@@ -331,7 +331,6 @@ public abstract class BaseJAdapter<VH extends RecyclerHolder, D> extends Recycle
      * 移除数据
      *
      * @param position 数据位置
-     * @return 适配器对象
      */
     public void removeData(int position) {
         if (null != realDatas && realDatas.size() > position) {

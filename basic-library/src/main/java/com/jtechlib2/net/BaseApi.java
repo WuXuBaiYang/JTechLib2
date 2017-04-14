@@ -18,13 +18,13 @@ public class BaseApi {
     /**
      * 创建一个接口方法
      *
-     * @param okHttpClient
-     * @param converterFactory
-     * @param callAdapterFactory
-     * @param baseUrl
-     * @param service
-     * @param <T>
-     * @return
+     * @param okHttpClient okhttp客户端
+     * @param converterFactory 处理工厂类
+     * @param callAdapterFactory 请求适配器工厂
+     * @param baseUrl 基础地质
+     * @param service 接口
+     * @param <T> 接口泛型
+     * @return 接口
      */
     public <T> T create(OkHttpClient okHttpClient, Converter.Factory converterFactory, CallAdapter.Factory callAdapterFactory, String baseUrl, Class<T> service) {
         Retrofit.Builder builder = new Retrofit.Builder()

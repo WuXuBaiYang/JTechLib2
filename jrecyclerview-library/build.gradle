@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 25
@@ -19,8 +20,20 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    lintOptions {
+        abortOnError false
+    }
+}
+
+publish {
+    userOrg = 'wuxubaiyang'
+    groupId = 'com.jtechlib2'
+    artifactId = 'jrecycler-library'
+    publishVersion = '2.0.0'
+    desc = 'a simple recyclerview lib'
+    website = 'https://github.com/WuXuBaiYang'
 }
 
 dependencies {
-    compile 'com.android.support:recyclerview-v7:25.2.0'
+    compile 'com.android.support:recyclerview-v7:25.3.1'
 }

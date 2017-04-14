@@ -34,9 +34,10 @@ public class ImageUtils {
     /**
      * 显示圆形图片
      *
-     * @param context
-     * @param uri
-     * @param imageView
+     * @param context   context
+     * @param uri       图片地址
+     * @param imageView 图片容器
+     * @param <T>       泛型
      */
     public static <T extends ImageView> void showCircleImage(Context context, String uri, T imageView) {
         showCircleImage(context, uri, imageView, 0, 0);
@@ -45,11 +46,12 @@ public class ImageUtils {
     /**
      * 显示圆形图片
      *
-     * @param context
-     * @param uri
-     * @param imageView
-     * @param errorResId
-     * @param placeholderResId
+     * @param context          context
+     * @param uri              图片地址
+     * @param imageView        图片容器
+     * @param errorResId       错误图片
+     * @param placeholderResId 占位图
+     * @param <T>              泛型
      */
     public static <T extends ImageView> void showCircleImage(Context context, String uri, T imageView, int errorResId, int placeholderResId) {
         Glide.with(context)
@@ -61,11 +63,11 @@ public class ImageUtils {
     }
 
     /**
-     * @param context
-     * @param uri
-     * @param imageView
-     * @param radius
-     * @param <T>
+     * @param context   context
+     * @param uri       图片地址
+     * @param imageView 图片容器
+     * @param radius    圆角半径
+     * @param <T>       泛型
      */
     public static <T extends ImageView> void showRoundImage(Context context, String uri, T imageView, float radius) {
         showRoundImage(context, uri, imageView, radius, 0, 0);
@@ -74,13 +76,13 @@ public class ImageUtils {
     /**
      * 显示圆角图片
      *
-     * @param context
-     * @param uri
-     * @param imageView
-     * @param radius
-     * @param errorResId
-     * @param placeholderResId
-     * @param <T>
+     * @param context          context
+     * @param uri              图片地址
+     * @param imageView        图片容器
+     * @param radius           圆角半径
+     * @param errorResId       错误图片
+     * @param placeholderResId 占位图
+     * @param <T>              泛型
      */
     public static <T extends ImageView> void showRoundImage(Context context, String uri, T imageView, float radius, int errorResId, int placeholderResId) {
         Glide.with(context)
@@ -94,9 +96,10 @@ public class ImageUtils {
     /**
      * 显示一张图片
      *
-     * @param context
-     * @param uri
-     * @param imageView
+     * @param context   context
+     * @param uri       图片地址
+     * @param imageView 图片容器
+     * @param <T>       泛型
      */
     public static <T extends ImageView> void showImage(Context context, String uri, T imageView) {
         showImage(context, uri, imageView, 0, 0);
@@ -105,11 +108,12 @@ public class ImageUtils {
     /**
      * 显示一张图片
      *
-     * @param context
-     * @param uri
-     * @param imageView
-     * @param errorResId
-     * @param placeholderResId
+     * @param context          context
+     * @param uri              图片地址
+     * @param imageView        图片容器
+     * @param errorResId       错误图
+     * @param placeholderResId 占位图
+     * @param <T>              泛型
      */
     public static <T extends ImageView> void showImage(Context context, String uri, T imageView, int errorResId, int placeholderResId) {
         Glide.with(context)
@@ -122,9 +126,9 @@ public class ImageUtils {
     /**
      * 请求图片
      *
-     * @param context
-     * @param uri
-     * @param onNext
+     * @param context context
+     * @param uri     图片地址
+     * @param onNext  动作
      */
     public static void requestImage(Context context, String uri, Consumer<? super Bitmap> onNext) {
         requestImage(context, uri, Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL, onNext);
@@ -133,11 +137,11 @@ public class ImageUtils {
     /**
      * 请求图片
      *
-     * @param context
-     * @param uri
-     * @param width
-     * @param height
-     * @param onNext
+     * @param context context
+     * @param uri     图片你地址
+     * @param width   需要的图片宽
+     * @param height  需要的图片高
+     * @param onNext  动作
      */
     public static void requestImage(Context context, String uri, int width, int height, Consumer<? super Bitmap> onNext) {
         requestImage(context, uri, width, height, onNext, new Consumer<Throwable>() {
@@ -151,12 +155,12 @@ public class ImageUtils {
     /**
      * 请求图片，回调bitmap
      *
-     * @param context
-     * @param uri
-     * @param width
-     * @param height
-     * @param onNext
-     * @param onError
+     * @param context context
+     * @param uri     图片地址
+     * @param width   需要的图片宽
+     * @param height  需要的图片高
+     * @param onNext  动作
+     * @param onError 错误动作
      */
     public static void requestImage(Context context, String uri, int width, int height, Consumer<? super Bitmap> onNext, Consumer<Throwable> onError) {
         Observable.just(new RxModel(context, uri, width, height))
@@ -187,9 +191,9 @@ public class ImageUtils {
     /**
      * 请求本地图片
      *
-     * @param context
-     * @param uri
-     * @param onNext
+     * @param context context
+     * @param uri     图片地址
+     * @param onNext  动作
      */
     public static void requestLocalImage(Context context, String uri, Consumer<? super Bitmap> onNext) {
         requestLocalImage(context, uri, Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL, onNext, new Consumer<Throwable>() {
@@ -203,11 +207,11 @@ public class ImageUtils {
     /**
      * 请求本地图片
      *
-     * @param context
-     * @param uri
-     * @param width
-     * @param height
-     * @param onNext
+     * @param context context
+     * @param uri     图片地址
+     * @param width   需要的图片宽
+     * @param height  需要的图片高
+     * @param onNext  动作
      */
     public static void requestLocalImage(Context context, String uri, int width, int height, Consumer<? super Bitmap> onNext) {
         requestLocalImage(context, uri, width, height, onNext, new Consumer<Throwable>() {
@@ -221,12 +225,12 @@ public class ImageUtils {
     /**
      * 请求本地图片
      *
-     * @param context
-     * @param uri
-     * @param width
-     * @param height
-     * @param onNext
-     * @param onError
+     * @param context context
+     * @param uri     图片地址
+     * @param width   需要的图片宽
+     * @param height  需要的图片高
+     * @param onNext  动作
+     * @param onError 错误动作
      */
     public static void requestLocalImage(Context context, String uri, int width, int height, Consumer<? super Bitmap> onNext, Consumer<Throwable> onError) {
         Observable.just(new RxModel(context, uri, width, height))
@@ -263,11 +267,11 @@ public class ImageUtils {
     /**
      * 图片请求，target返回
      *
-     * @param context
-     * @param uri
-     * @param target
-     * @param <Y>
-     * @return
+     * @param context context
+     * @param uri     图片地址
+     * @param target  目标
+     * @param <Y>     泛型
+     * @return 返回一个对象
      */
     public static <Y extends Target<File>> Y requestImage(Context context, String uri, Y target) {
         return Glide.with(context)
@@ -358,10 +362,10 @@ public class ImageUtils {
     /**
      * 根据目标宽高计算samplesize
      *
-     * @param options
-     * @param reqWidth
-     * @param reqHeight
-     * @return
+     * @param options   图片配置
+     * @param reqWidth  目标宽度
+     * @param reqHeight 目标高度
+     * @return 计算后的值
      */
     private static int calculateInSampleSize(BitmapFactory.Options options, int reqWidth, int reqHeight) {
         // 源图片的高度和宽度

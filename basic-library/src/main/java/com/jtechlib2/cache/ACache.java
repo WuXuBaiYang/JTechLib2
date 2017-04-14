@@ -146,7 +146,7 @@ public class ACache {
     /**
      * 读取 String数据
      *
-     * @param key
+     * @param key 键
      * @return String 数据
      */
     public String getAsString(String key) {
@@ -216,7 +216,7 @@ public class ACache {
     /**
      * 读取JSONObject数据
      *
-     * @param key
+     * @param key 键
      * @return JSONObject数据
      */
     public JSONObject getAsJSONObject(String key) {
@@ -262,7 +262,7 @@ public class ACache {
     /**
      * 读取JSONArray数据
      *
-     * @param key
+     * @param key 键
      * @return JSONArray数据
      */
     public JSONArray getAsJSONArray(String key) {
@@ -325,7 +325,7 @@ public class ACache {
     /**
      * 获取 byte 数据
      *
-     * @param key
+     * @param key 键
      * @return byte 数据
      */
     public byte[] getAsBinary(String key) {
@@ -407,7 +407,7 @@ public class ACache {
     /**
      * 读取 Serializable数据
      *
-     * @param key
+     * @param key key
      * @return Serializable 数据
      */
     public Object getAsObject(String key) {
@@ -470,7 +470,7 @@ public class ACache {
     /**
      * 读取 bitmap 数据
      *
-     * @param key
+     * @param key key
      * @return bitmap 数据
      */
     public Bitmap getAsBitmap(String key) {
@@ -508,7 +508,7 @@ public class ACache {
     /**
      * 读取 Drawable 数据
      *
-     * @param key
+     * @param key key
      * @return Drawable 数据
      */
     public Drawable getAsDrawable(String key) {
@@ -521,7 +521,7 @@ public class ACache {
     /**
      * 获取缓存文件
      *
-     * @param key
+     * @param key key
      * @return value 缓存的文件
      */
     public File file(String key) {
@@ -534,7 +534,7 @@ public class ACache {
     /**
      * 移除某个key
      *
-     * @param key
+     * @param key key
      * @return 是否移除成功
      */
     public boolean remove(String key) {
@@ -551,7 +551,6 @@ public class ACache {
     /**
      * @author 杨福海（michael） www.yangfuhai.com
      * @version 1.0
-     * @title 缓存管理器
      */
     public class ACacheManager {
         private final AtomicLong cacheSize;
@@ -697,7 +696,7 @@ public class ACache {
         /**
          * 判断缓存的String数据是否到期
          *
-         * @param str
+         * @param str key
          * @return true：到期了 false：还没有到期
          */
         private static boolean isDue(String str) {
@@ -707,7 +706,7 @@ public class ACache {
         /**
          * 判断缓存的byte数据是否到期
          *
-         * @param data
+         * @param data 数据集合
          * @return true：到期了 false：还没有到期
          */
         private static boolean isDue(byte[] data) {

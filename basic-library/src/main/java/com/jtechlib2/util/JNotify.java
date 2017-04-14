@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.media.RingtoneManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
@@ -30,8 +31,8 @@ public class JNotify {
     /**
      * 构造
      *
-     * @param context
-     * @return
+     * @param context context
+     * @return builder
      */
     public static NotifyBuilder build(Context context) {
         return new NotifyBuilder(context);
@@ -40,9 +41,9 @@ public class JNotify {
     /**
      * 构造
      *
-     * @param context
-     * @param builder
-     * @return
+     * @param context context
+     * @param builder builder
+     * @return 返回一个builder
      */
     public static NotifyBuilder build(Context context, NotificationCompat.Builder builder) {
         return new NotifyBuilder(context, builder);
@@ -191,11 +192,17 @@ public class JNotify {
         }
 
         public NotifyBuilder setContentIntent(int requestCode, @NonNull Intent intent, int flags, @Nullable Bundle options) {
-            return setContentIntent(PendingIntent.getActivity(context, requestCode, intent, flags, options));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                return setContentIntent(PendingIntent.getActivity(context, requestCode, intent, flags, options));
+            }
+            return setContentIntent(PendingIntent.getActivity(context, requestCode, intent, flags));
         }
 
         public NotifyBuilder setContentIntents(int requestCode, @NonNull Intent[] intents, int flags, @Nullable Bundle options) {
-            return setContentIntent(PendingIntent.getActivities(context, requestCode, intents, flags, options));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                return setContentIntent(PendingIntent.getActivities(context, requestCode, intents, flags, options));
+            }
+            return setContentIntent(PendingIntent.getActivities(context, requestCode, intents, flags));
         }
 
         public NotifyBuilder setContentIntent(PendingIntent pendingIntent) {
