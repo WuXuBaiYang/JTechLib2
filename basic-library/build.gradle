@@ -29,8 +29,8 @@ publish {
     userOrg = 'wuxubaiyang'
     groupId = 'com.jtechlib2'
     artifactId = 'basic-library'
-    publishVersion = '2.0.2'
-    desc = 'merge with JRecyclerViewLibrary'
+    publishVersion = '2.1.0'
+    desc = 'add new class and modify some class'
     website = 'https://github.com/WuXuBaiYang'
 }
 

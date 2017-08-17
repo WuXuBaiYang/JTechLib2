@@ -21,9 +21,9 @@ public class BasePermissionManager {
     /**
      * 检查单个权限
      *
-     * @param activity
-     * @param permission
-     * @param listener
+     * @param activity   activity
+     * @param permission 权限
+     * @param listener   回调
      */
     public static void checkSingle(Activity activity, String permission, final PermissionListener listener) {
         Dexter.withActivity(activity)
@@ -53,9 +53,9 @@ public class BasePermissionManager {
     /**
      * 权限检查
      *
-     * @param activity
-     * @param permissions
-     * @param listener
+     * @param activity    activity
+     * @param permissions 权限数组
+     * @param listener    回调
      */
     public static void checkMultiple(Activity activity, String[] permissions, final PermissionListener listener) {
         Dexter.withActivity(activity)

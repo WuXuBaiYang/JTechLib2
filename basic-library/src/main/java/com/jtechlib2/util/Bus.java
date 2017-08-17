@@ -13,7 +13,7 @@ public class Bus extends EventBus {
     /**
      * 获取车次
      *
-     * @return
+     * @return eventbus对象
      */
     public static EventBus get() {
         synchronized (Bus.class) {
@@ -27,7 +27,7 @@ public class Bus extends EventBus {
     /**
      * 上车-老司机带带我
      *
-     * @param subscriber
+     * @param subscriber 监听者
      */
     public static void getOn(Object subscriber) {
         get().register(subscriber);
@@ -36,7 +36,7 @@ public class Bus extends EventBus {
     /**
      * 下车
      *
-     * @param subscriber
+     * @param subscriber 监听者
      */
     public static void getOff(Object subscriber) {
         get().unregister(subscriber);
@@ -45,8 +45,8 @@ public class Bus extends EventBus {
     /**
      * 是否上车了
      *
-     * @param subscriber
-     * @return
+     * @param subscriber 监听者
+     * @return 是否已监听
      */
     public static boolean inBus(Object subscriber) {
         return get().isRegistered(subscriber);
