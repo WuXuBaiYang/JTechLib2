@@ -391,7 +391,9 @@ public abstract class BaseCacheManager {
      *
      * @return 获取存储路径名
      */
-    public abstract String getCacheName();
+    public String getCacheName() {
+        return "jtechCache";
+    }
 
     /**
      * 获取定制gson,使用者可以重写,不为空则会使用当前返回
