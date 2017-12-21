@@ -17,6 +17,7 @@ import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
 import com.bumptech.glide.request.target.Target;
 
 import java.io.File;
+import java.security.MessageDigest;
 import java.util.concurrent.ExecutionException;
 
 import io.reactivex.Observable;
@@ -54,11 +55,11 @@ public class ImageUtils {
      * @param <T>              泛型
      */
     public static <T extends ImageView> void showCircleImage(Context context, String uri, T imageView, int errorResId, int placeholderResId) {
-        Glide.with(context)
+        GlideApp.with(context)
                 .load(uri)
                 .error(errorResId)
                 .placeholder(placeholderResId)
-                .transform(new GlideCircleTransform(context))
+                .transform(new GlideCircleTransform())
                 .into(imageView);
     }
 
@@ -85,11 +86,11 @@ public class ImageUtils {
      * @param <T>              泛型
      */
     public static <T extends ImageView> void showRoundImage(Context context, String uri, T imageView, float radius, int errorResId, int placeholderResId) {
-        Glide.with(context)
+        GlideApp.with(context)
                 .load(uri)
                 .error(errorResId)
                 .placeholder(placeholderResId)
-                .transform(new GlideRoundTransform(context, radius))
+                .transform(new GlideRoundTransform(radius))
                 .into(imageView);
     }
 
@@ -116,7 +117,7 @@ public class ImageUtils {
      * @param <T>              泛型
      */
     public static <T extends ImageView> void showImage(Context context, String uri, T imageView, int errorResId, int placeholderResId) {
-        Glide.with(context)
+        GlideApp.with(context)
                 .load(uri)
                 .error(errorResId)
                 .placeholder(placeholderResId)
@@ -283,10 +284,6 @@ public class ImageUtils {
      * 裁剪圆形
      */
     private static class GlideCircleTransform extends BitmapTransformation {
-        public GlideCircleTransform(Context context) {
-            super(context);
-        }
-
         @Override
         protected Bitmap transform(BitmapPool pool, Bitmap toTransform, int outWidth, int outHeight) {
             return circleCrop(pool, toTransform);
@@ -315,8 +312,8 @@ public class ImageUtils {
         }
 
         @Override
-        public String getId() {
-            return getClass().getName();
+        public void updateDiskCacheKey(MessageDigest messageDigest) {
+
         }
     }
 
@@ -326,8 +323,7 @@ public class ImageUtils {
     private static class GlideRoundTransform extends BitmapTransformation {
         private float radius;
 
-        public GlideRoundTransform(Context context, float radius) {
-            super(context);
+        public GlideRoundTransform(float radius) {
             this.radius = radius;
         }
 
@@ -354,8 +350,8 @@ public class ImageUtils {
         }
 
         @Override
-        public String getId() {
-            return getClass().getName() + Math.round(radius);
+        public void updateDiskCacheKey(MessageDigest messageDigest) {
+
         }
     }
 
