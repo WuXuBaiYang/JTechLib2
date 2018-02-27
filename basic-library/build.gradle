@@ -28,8 +28,8 @@ publish {
     userOrg = 'wuxubaiyang'
     groupId = 'com.jtechlib2'
     artifactId = 'basic-library'
-    publishVersion = '2.1.2'
-    desc = 'add new class and modify some class'
+    publishVersion = '2.1.3'
+    desc = 'add new method on base class'
     website = 'https://github.com/WuXuBaiYang'
 }
 
