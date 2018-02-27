@@ -5,6 +5,8 @@ import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+import com.jtechlib2.util.Bus;
+
 import butterknife.ButterKnife;
 
 /**
@@ -64,5 +66,21 @@ public abstract class BaseActivity extends AppCompatActivity {
      */
     public BaseActivity getActivity() {
         return this;
+    }
+
+    /**
+     * 上车
+     */
+    public void getOnBus() {
+        Bus.getOn(this);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        //判断是否需要下车
+        if (Bus.inBus(this)) {
+            Bus.getOff(this);
+        }
     }
 }

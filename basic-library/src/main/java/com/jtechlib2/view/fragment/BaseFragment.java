@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.jtechlib2.util.Bus;
+
 import butterknife.ButterKnife;
 
 /**
@@ -70,4 +72,20 @@ public abstract class BaseFragment extends Fragment {
      * 请求数据
      */
     protected abstract void loadData();
+
+    /**
+     * 上车
+     */
+    public void getOnBus() {
+        Bus.getOn(this);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        //判断是否需要下车
+        if (Bus.inBus(this)) {
+            Bus.getOff(this);
+        }
+    }
 }
