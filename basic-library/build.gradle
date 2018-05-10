@@ -29,7 +29,7 @@ publish {
     userOrg = 'wuxubaiyang'
     groupId = 'com.jtechlib2'
     artifactId = 'basic-library'
-    publishVersion = '2.1.5'
+    publishVersion = '2.1.6'
     desc = 'fix some bugs'
     website = 'https://github.com/WuXuBaiYang'
 }
