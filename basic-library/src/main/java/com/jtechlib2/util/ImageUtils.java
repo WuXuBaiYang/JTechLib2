@@ -1,5 +1,6 @@
 package com.jtechlib2.util;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;
@@ -8,6 +9,7 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.widget.ImageView;
 
+import com.bumptech.glide.load.Transformation;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
@@ -24,92 +26,88 @@ public class ImageUtils {
      * 显示圆形图片
      *
      * @param context   context
-     * @param uri       图片地址
+     * @param object    图片地址
      * @param imageView 图片容器
      * @param <T>       泛型
      */
-    public static <T extends ImageView> void showCircleImage(Context context, String uri, T imageView) {
-        showCircleImage(context, uri, imageView, 0, 0);
+    public static <T extends ImageView> void showCircleImage(Context context, Object object, T imageView) {
+        showCircleImage(context, object, imageView, 0, 0);
     }
 
     /**
      * 显示圆形图片
      *
      * @param context          context
-     * @param uri              图片地址
+     * @param object           图片地址
      * @param imageView        图片容器
      * @param errorResId       错误图片
      * @param placeholderResId 占位图
      * @param <T>              泛型
      */
-    public static <T extends ImageView> void showCircleImage(Context context, String uri, T imageView, int errorResId, int placeholderResId) {
-        GlideApp.with(context)
-                .load(uri)
-                .error(errorResId)
-                .placeholder(placeholderResId)
-                .transform(new CircleCrop())
-                .into(imageView);
+    public static <T extends ImageView> void showCircleImage(Context context, Object object, T imageView, int errorResId, int placeholderResId) {
+        showImage(context, object, imageView, new CircleCrop(), errorResId, placeholderResId);
     }
 
     /**
      * @param context   context
-     * @param uri       图片地址
+     * @param object    图片地址
      * @param imageView 图片容器
      * @param radius    圆角半径
      * @param <T>       泛型
      */
-    public static <T extends ImageView> void showRoundImage(Context context, String uri, T imageView, float radius) {
-        showRoundImage(context, uri, imageView, radius, 0, 0);
+    public static <T extends ImageView> void showRoundImage(Context context, Object object, T imageView, float radius) {
+        showRoundImage(context, object, imageView, radius, 0, 0);
     }
 
     /**
      * 显示圆角图片
      *
      * @param context          context
-     * @param uri              图片地址
+     * @param object           图片地址
      * @param imageView        图片容器
      * @param radius           圆角半径
      * @param errorResId       错误图片
      * @param placeholderResId 占位图
      * @param <T>              泛型
      */
-    public static <T extends ImageView> void showRoundImage(Context context, String uri, T imageView, float radius, int errorResId, int placeholderResId) {
-        GlideApp.with(context)
-                .load(uri)
-                .error(errorResId)
-                .placeholder(placeholderResId)
-                .transform(new RoundTransform(radius))
-                .into(imageView);
+    public static <T extends ImageView> void showRoundImage(Context context, Object object, T imageView, float radius, int errorResId, int placeholderResId) {
+        showImage(context, object, imageView, new RoundTransform(radius), errorResId, placeholderResId);
     }
 
     /**
      * 显示一张图片
      *
      * @param context   context
-     * @param uri       图片地址
+     * @param object    图片地址
      * @param imageView 图片容器
      * @param <T>       泛型
      */
-    public static <T extends ImageView> void showImage(Context context, String uri, T imageView) {
-        showImage(context, uri, imageView, 0, 0);
+    public static <T extends ImageView> void showImage(Context context, Object object, T imageView) {
+        showImage(context, object, imageView, null, 0, 0);
     }
 
     /**
      * 显示一张图片
      *
      * @param context          context
-     * @param uri              图片地址
+     * @param object           图片地址
      * @param imageView        图片容器
+     * @param transformation   图片处理
      * @param errorResId       错误图
      * @param placeholderResId 占位图
      * @param <T>              泛型
      */
-    public static <T extends ImageView> void showImage(Context context, String uri, T imageView, int errorResId, int placeholderResId) {
-        GlideApp.with(context)
-                .load(uri)
+    @SuppressLint("CheckResult")
+    private static <T extends ImageView> void showImage(Context context, Object object, T imageView,
+                                                        Transformation<Bitmap> transformation, int errorResId, int placeholderResId) {
+        GlideRequest glideRequest = GlideApp.with(context)
+                .load(object)
                 .error(errorResId)
-                .placeholder(placeholderResId)
-                .into(imageView);
+                .placeholder(placeholderResId);
+        if (null != transformation) {
+            glideRequest.transform(transformation);
+        }
+        glideRequest.into(imageView);
     }
 
     /**
