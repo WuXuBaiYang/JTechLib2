@@ -88,6 +88,20 @@ public class ImageUtils {
 
     /**
      * 显示一张图片
+     * @param context          context
+     * @param object           图片地址
+     * @param imageView        图片容器
+     * @param errorResId       错误图片
+     * @param placeholderResId 占位图
+     * @param <T>              泛型
+     */
+    public static <T extends ImageView> void showImage(Context context, Object object,
+                                                       T imageView, int errorResId, int placeholderResId) {
+        showImage(context, object, imageView, null, errorResId, placeholderResId);
+    }
+
+    /**
+     * 显示一张图片
      *
      * @param context          context
      * @param object           图片地址
