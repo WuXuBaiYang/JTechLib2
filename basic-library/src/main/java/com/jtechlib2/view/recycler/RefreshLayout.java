@@ -382,9 +382,6 @@ public class RefreshLayout extends ViewGroup implements NestedScrollingParent, N
      */
     public void startRefreshing() {
         setEnabled(false);
-        if (null != mListener) {
-            mListener.onRefresh();
-        }
         moveSpinner(mTotalUnconsumed);
         setRefreshing(true, true);
     }

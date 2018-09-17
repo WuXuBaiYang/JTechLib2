@@ -29,8 +29,8 @@ publish {
     userOrg = 'wuxubaiyang'
     groupId = 'com.jtechlib2'
     artifactId = 'basic-library'
-    publishVersion = '2.1.6'
-    desc = 'fix some bugs'
+    publishVersion = '2.1.7'
+    desc = 'fix refreshview bugs'
     website = 'https://github.com/WuXuBaiYang'
 }
 
