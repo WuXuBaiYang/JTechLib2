@@ -180,10 +180,10 @@ public class RefreshLayout extends ViewGroup implements NestedScrollingParent, N
                 mProgress.setAlpha(MAX_ALPHA);
                 mProgress.start();
                 if (mNotify) {
-                    if (mListener != null) {
-                        mListener.onRefresh();
-                        setEnabled(false);
-                    }
+//                    if (mListener != null) {
+//                        mListener.onRefresh();
+//                        setEnabled(false);
+//                    }
                 }
             } else {
                 mProgress.stop();
@@ -474,6 +474,12 @@ public class RefreshLayout extends ViewGroup implements NestedScrollingParent, N
                 animateOffsetToCorrectPosition(mCurrentTargetOffsetTop, mRefreshListener);
             } else {
                 startScaleDownAnimation(mRefreshListener);
+            }
+            if (notify) {
+                if (mListener != null) {
+                    mListener.onRefresh();
+                    setEnabled(false);
+                }
             }
         }
     }
