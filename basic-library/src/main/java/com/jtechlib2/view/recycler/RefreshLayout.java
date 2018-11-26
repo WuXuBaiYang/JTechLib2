@@ -478,7 +478,6 @@ public class RefreshLayout extends ViewGroup implements NestedScrollingParent, N
             if (notify) {
                 if (mListener != null) {
                     mListener.onRefresh();
-                    setEnabled(false);
                 }
             }
         }
