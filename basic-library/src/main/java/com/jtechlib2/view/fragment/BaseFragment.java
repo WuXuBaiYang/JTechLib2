@@ -29,6 +29,8 @@ public abstract class BaseFragment extends Fragment {
             contentView = createView(inflater, container);
             //绑定注解框架
             ButterKnife.bind(this, contentView);
+            //上车请注意
+            Bus.getOnWithBase(this);
             //初始化变量(用户传递进来的参数)
             initVariables(getArguments());
             //初始化视图
@@ -83,9 +85,7 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        //判断是否需要下车
-        if (Bus.inBus(this)) {
-            Bus.getOff(this);
-        }
+        //下车请注意
+        Bus.getOffWithBase(this);
     }
 }
