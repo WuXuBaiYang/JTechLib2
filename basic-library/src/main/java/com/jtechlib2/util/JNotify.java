@@ -21,7 +21,7 @@ import android.widget.RemoteViews;
  */
 
 public class JNotify {
-    public static final int REQUEST_CODE_NOTIFY = 818;
+    private static final int REQUEST_CODE_NOTIFY = 818;
     private static final int DEFAULT_LIGHT_COLOR = 0xFFFF0000;
     private static final int DEFAULT_LIGHT_ON = 350;
     private static final int DEFAULT_LIGHT_OFF = 300;

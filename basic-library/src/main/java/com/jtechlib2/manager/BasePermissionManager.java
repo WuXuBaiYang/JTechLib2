@@ -2,7 +2,7 @@ package com.jtechlib2.manager;
 
 import android.app.Activity;
 
-import com.jtechlib2.listener.PermissionListener;
+import com.jtechlib2.listener.OnPermissionListener;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.MultiplePermissionsReport;
 import com.karumi.dexter.PermissionToken;
@@ -25,7 +25,7 @@ public class BasePermissionManager {
      * @param permission 权限
      * @param listener   回调
      */
-    public static void checkSingle(Activity activity, String permission, final PermissionListener listener) {
+    public static void checkSingle(Activity activity, String permission, final OnPermissionListener listener) {
         Dexter.withActivity(activity)
                 .withPermission(permission)
                 .withListener(new com.karumi.dexter.listener.single.PermissionListener() {
@@ -57,7 +57,7 @@ public class BasePermissionManager {
      * @param permissions 权限数组
      * @param listener    回调
      */
-    public static void checkMultiple(Activity activity, String[] permissions, final PermissionListener listener) {
+    public static void checkMultiple(Activity activity, String[] permissions, final OnPermissionListener listener) {
         Dexter.withActivity(activity)
                 .withPermissions(permissions)
                 .withListener(new MultiplePermissionsListener() {

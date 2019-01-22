@@ -25,9 +25,9 @@ public class StatusBarCompat {
             return;
         }
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             int color = COLOR_DEFAULT;
-            ViewGroup contentView = (ViewGroup) activity.findViewById(android.R.id.content);
+            ViewGroup contentView = activity.findViewById(android.R.id.content);
             if (statusColor != INVALID_VAL) {
                 color = statusColor;
             }

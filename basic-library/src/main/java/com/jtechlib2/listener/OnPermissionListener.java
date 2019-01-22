@@ -3,6 +3,6 @@ package com.jtechlib2.listener;
 /**
  * 权限检查监听
  */
-public interface PermissionListener {
+public interface OnPermissionListener {
     void result(boolean allGranted);
 }

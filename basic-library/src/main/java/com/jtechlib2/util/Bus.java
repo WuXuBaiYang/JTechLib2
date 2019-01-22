@@ -12,6 +12,9 @@ import java.lang.reflect.Method;
 public class Bus extends EventBus {
     private static Bus INSTANCE;
 
+    private Bus() {
+    }
+
     /**
      * 获取车次
      *

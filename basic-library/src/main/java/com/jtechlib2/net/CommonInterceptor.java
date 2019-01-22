@@ -1,8 +1,8 @@
 package com.jtechlib2.net;
 
 import java.io.IOException;
-import java.util.Iterator;
 import java.util.Map;
+import java.util.Objects;
 
 import okhttp3.Interceptor;
 import okhttp3.Request;
@@ -13,7 +13,7 @@ import okhttp3.Request;
 class CommonInterceptor implements Interceptor {
     private Map<String, String> headerMap;
 
-    public CommonInterceptor(Map<String, String> headerMap) {
+    CommonInterceptor(Map<String, String> headerMap) {
         this.headerMap = headerMap;
     }
 
@@ -23,11 +23,9 @@ class CommonInterceptor implements Interceptor {
         Request.Builder builder = chain.request()
                 .newBuilder();
         if (null != headerMap) {
-            Iterator<String> iterator = headerMap.keySet().iterator();
-            while (iterator.hasNext()) {
-                String key = iterator.next();
+            for (String key : headerMap.keySet()) {
                 String value = headerMap.get(key);
-                builder.addHeader(key, value);
+                builder.addHeader(key, Objects.requireNonNull(value));
             }
         }
         return chain.proceed(builder.build());

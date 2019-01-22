@@ -21,14 +21,14 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //赋值TAG
         TAG = this.getClass().getSimpleName();
-        //上车请注意
-        Bus.getOnWithBase(this);
         //初始化变量(用户传递进来的参数)
         if (null != getIntent()) {
             initVariables(getIntent().getExtras());
         } else {
             initVariables(null);
         }
+        //上车请注意
+        Bus.getOnWithBase(this);
         //初始化视图
         initViews(savedInstanceState);
         //加载数据

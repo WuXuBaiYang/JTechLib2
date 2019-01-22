@@ -29,10 +29,10 @@ public abstract class BaseFragment extends Fragment {
             contentView = createView(inflater, container);
             //绑定注解框架
             ButterKnife.bind(this, contentView);
-            //上车请注意
-            Bus.getOnWithBase(this);
             //初始化变量(用户传递进来的参数)
             initVariables(getArguments());
+            //上车请注意
+            Bus.getOnWithBase(this);
             //初始化视图
             initViews(savedInstanceState);
             //加载数据
